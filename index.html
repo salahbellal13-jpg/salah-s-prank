@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CapCut Ultimate Download</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        margin: 0;
+        background: #111;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .box {
+        width: 90%;
+        max-width: 500px;
+        background: #1e1e1e;
+        padding: 35px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 0 30px #000;
+    }
+
+    h1 {
+        margin-top: 0;
+    }
+
+    button {
+        background: #00e676;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 8px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #00c853;
+    }
+
+    #download,
+    #warning,
+    #prank {
+        display: none;
+    }
+
+    .progress {
+        width: 100%;
+        height: 20px;
+        background: #333;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-top: 25px;
+    }
+
+    #bar {
+        width: 0%;
+        height: 100%;
+        background: #00e676;
+    }
+
+    .warning {
+        background: #8b0000;
+        padding: 25px;
+        border-radius: 10px;
+    }
+
+    .warning h1 {
+        color: #ff4444;
+    }
+
+    #countdown {
+        font-size: 45px;
+        font-weight: bold;
+        margin: 20px;
+    }
+
+    .prank {
+        background: #222;
+    }
+
+    .prank h1 {
+        color: #00e676;
+        font-size: 35px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box" id="home">
+    <h1>CapCut Ultimate</h1>
+    <p>Premium Video Editor</p>
+    <p>✔ All Features Unlocked</p>
+    <p>✔ No Ads</p>
+    <p>✔ Ultimate Version</p>
+
+    <button onclick="startDownload()">
+        DOWNLOAD FOR FREE
+    </button>
+</div>
+
+<div class="box" id="download">
+    <h2>Downloading CapCut Ultimate...</h2>
+    <p id="percent">0%</p>
+
+    <div class="progress">
+        <div id="bar"></div>
+    </div>
+
+    <p>Please wait...</p>
+</div>
+
+<div class="box warning" id="warning">
+    <h1>⚠ WARNING</h1>
+
+    <p>
+        Your device is being scanned...
+    </p>
+
+    <p>
+        Preparing security report...
+    </p>
+
+    <div id="countdown">10</div>
+
+    <p>
+        DO NOT CLOSE THIS WINDOW
+    </p>
+</div>
+
+<div class="box prank" id="prank">
+    <h1>😂 GOTCHA! 😂</h1>
+
+    <h2>This was just a prank!</h2>
+
+    <p>
+        No files were accessed.
+    </p>
+
+    <p>
+        No information was collected.
+    </p>
+
+    <p>
+        Nothing was uploaded.
+    </p>
+</div>
+
+<script>
+
+function startDownload() {
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("download").style.display = "block";
+
+    let progress = 0;
+
+    let timer = setInterval(function() {
+
+        progress++;
+
+        document.getElementById("bar").style.width = progress + "%";
+        document.getElementById("percent").innerText = progress + "%";
+
+        if (progress >= 100) {
+
+            clearInterval(timer);
+
+            setTimeout(showWarning, 800);
+        }
+
+    }, 150);
+
+}
+
+function showWarning() {
+
+    document.getElementById("download").style.display = "none";
+    document.getElementById("warning").style.display = "block";
+
+    let seconds = 10;
+
+    let timer = setInterval(function() {
+
+        seconds--;
+
+        document.getElementById("countdown").innerText = seconds;
+
+        if (seconds <= 0) {
+
+            clearInterval(timer);
+
+            document.getElementById("warning").style.display = "none";
+            document.getElementById("prank").style.display = "block";
+
+        }
+
+    }, 1000);
+}
+
+</script>
+
+</body>
+</html>
